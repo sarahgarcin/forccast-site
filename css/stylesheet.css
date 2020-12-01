@@ -180,9 +180,12 @@ header h1{
   color: rgba(0,0,0,0.8);
 }
 
+.planche .content-figure, .planche .content-p.figure-caption-content{
+  width: 45%;
+}
 
 .content-figure, .content-p.figure-caption-content{
-  width: 45%;
+  width: 100%;
   margin: 0;
 }
 
@@ -194,7 +197,7 @@ figcaption, .contents-container figcaption, .contents-container figcaption p{
   background: var(--pantone-one);
 }
 
-.part-2 .content-figure .content-figure-wrapper{
+.part-2 .content-figure .content-figure-wrapper, .controverse .content-figure figure{
   background: var(--pantone-two);
 }
 
@@ -202,7 +205,7 @@ figcaption, .contents-container figcaption, .contents-container figcaption p{
   background: var(--pantone-three);
 }
 
-.content-figure-wrapper, figure{
+.content-figure-wrapper, figure, .controverse figure{
   outline: none;
 }
 
