@@ -38,32 +38,27 @@ if($('body').hasClass('home')){
   });
 }
 
-// AJOUTER des + aléatoirement
-var plusNumber = Math.floor(Math.random()*100);
-var articleHeight = $('body').height();
-var articleWidth = $('body').width();
-console.log(articleHeight);
-for(var i=0; i<=plusNumber; i++){
-  var randomX = Math.floor(Math.random()*articleWidth);
-  var randomY = Math.floor(Math.random()*articleHeight);
-  var plus = '<div class="plus" style="top:'+randomY+'px; left:'+randomX+'px;">+</div>';
-  $('#container-menu-pres ').append(plus);
-}
+// AJOUTER des + aléatoirement sur la home
+addPlus($('#container-menu-pres '), 100, 300);
 
 // ------------------ FIN HOME --------------------- 
 // -------------------------------------------------
 
+// AJOUTER des + aléatoirement sur les articles
+addPlus($('section'), 100, 400);
 
-// AJOUTER des + aléatoirement
-var plusNumber = Math.floor(Math.random()*1000 + 200);
-var articleHeight = $('body').height();
-var articleWidth = $('body').width();
-console.log(articleHeight);
-for(var i=0; i<=plusNumber; i++){
-  var randomX = Math.floor(Math.random()*articleWidth);
-  var randomY = Math.floor(Math.random()*articleHeight);
-  var plus = '<div class="plus" style="top:'+randomY+'px; left:'+randomX+'px;">+</div>';
-  $('section').append(plus);
+
+function addPlus(element, min, max){
+  var plusNumber = Math.floor(Math.random()*max + min);
+  var articleHeight = $('body').height();
+  var articleWidth = $('body').width();
+  console.log(articleHeight);
+  for(var i=0; i<=plusNumber; i++){
+    var randomX = Math.floor(Math.random()*articleWidth);
+    var randomY = Math.floor(Math.random()*articleHeight);
+    var plus = '<div class="plus" style="top:'+randomY+'px; left:'+randomX+'px;">+</div>';
+    element.append(plus);
+  }
 }
 
 
