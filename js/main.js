@@ -1,3 +1,57 @@
+// ------------------ HOME --------------------- 
+// --------------------------------------------- 
+
+//             MENU              //
+$('.menu-home li > span').on('click', function(){
+  if($(this).parent('li').hasClass('active')){
+    $(this).parent('li').removeClass('active');
+    $(this).find('.menu-plus').html('+');
+  }
+  else{
+    $(this).parent('li').addClass('active');
+    $(this).find('.menu-plus').html('-');
+  }
+});
+
+// sticky menu
+
+var stickyNavTop = $('.menu-home').offset().top;
+
+// our function that decides weather the navigation bar should have "fixed" css position or not.
+var stickyNav = function(){
+  var scrollTop = $(window).scrollTop(); // our current vertical position from the top
+       
+  // if we've scrolled more than the navigation, change its position to fixed to stick to top,
+  // otherwise change it back to relative
+  if (scrollTop > stickyNavTop) { 
+      $('.menu-home').addClass('sticky');
+  } else {
+      $('.menu-home').removeClass('sticky'); 
+  }
+};
+
+stickyNav();
+// and run it again every time you scroll
+$(window).scroll(function() {
+  stickyNav();
+});
+
+// AJOUTER des + aléatoirement
+var plusNumber = Math.floor(Math.random()*100);
+var articleHeight = $('body').height();
+var articleWidth = $('body').width();
+console.log(articleHeight);
+for(var i=0; i<=plusNumber; i++){
+  var randomX = Math.floor(Math.random()*articleWidth);
+  var randomY = Math.floor(Math.random()*articleHeight);
+  var plus = '<div class="plus" style="top:'+randomY+'px; left:'+randomX+'px;">+</div>';
+  $('#container-menu-pres ').append(plus);
+}
+
+// ------------------ FIN HOME --------------------- 
+// -------------------------------------------------
+
+
 // AJOUTER des + aléatoirement
 var plusNumber = Math.floor(Math.random()*1000 + 200);
 var articleHeight = $('body').height();

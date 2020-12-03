@@ -297,8 +297,97 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
   position: absolute;
   z-index: -1;
   font-weight: lighter;
-  color: var(--pantone-two); 
+  color: #000; 
   font-size: 15px;
 }
 
+/* ----------------- HOME ------------------------------*/
+
+#container-homescreen{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+#defaultCanvas0{
+  position: absolute; 
+  z-index: -1; 
+  top:-10px;
+  left:-20px;
+}
+
+.citation {
+  z-index: 4;
+  position: absolute;
+  left: 15px;
+  bottom: 50px;
+  font-family: 'YoungSerif';
+  font-size: 6.5vw;
+  line-height: 1.2;
+  color: var(--gris);
+}
+
+.citation span{
+  background-color: var(--fond);
+}
+
+.arrow-bottom{
+  font-size: 40px;
+  background-color: var(--gris);
+  display: block;
+  position: absolute; 
+  bottom: 8%;
+  right: 5%;
+  line-height: 1;
+  padding: 0px 10px 5px 10px;
+}
+
+.arrow-bottom a {
+  text-decoration: none;
+  color: #FFF;
+}
+
+#container-menu-pres {
+  position: relative; 
+  display: flex; 
+}
+
+
+.menu-home {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 21%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  padding-top: 60px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.content{
+  padding-top: 60px;
+  margin-left: 33%;
+  width: 50%;
+  margin-bottom: 300px;
+}
+
+.content h1{
+  font-family: var(--font-title);
+  margin-top: 0;
+  text-transform: uppercase;
+  font-size: 2em;
+  text-align: center; 
+}
+
+
+.presentation{
+  font-size: 1em;
+  width: 100%;
+}
 
