@@ -15,26 +15,28 @@ $('.menu-home li > span').on('click', function(){
 
 // sticky menu
 
-var stickyNavTop = $('.menu-home').offset().top;
+if($('body').hasClass('home')){
+  var stickyNavTop = $('.menu-home').offset().top;
 
-// our function that decides weather the navigation bar should have "fixed" css position or not.
-var stickyNav = function(){
-  var scrollTop = $(window).scrollTop(); // our current vertical position from the top
-       
-  // if we've scrolled more than the navigation, change its position to fixed to stick to top,
-  // otherwise change it back to relative
-  if (scrollTop > stickyNavTop) { 
-      $('.menu-home').addClass('sticky');
-  } else {
-      $('.menu-home').removeClass('sticky'); 
-  }
-};
+  // our function that decides weather the navigation bar should have "fixed" css position or not.
+  var stickyNav = function(){
+    var scrollTop = $(window).scrollTop(); // our current vertical position from the top
+         
+    // if we've scrolled more than the navigation, change its position to fixed to stick to top,
+    // otherwise change it back to relative
+    if (scrollTop > stickyNavTop) { 
+        $('.menu-home').addClass('sticky');
+    } else {
+        $('.menu-home').removeClass('sticky'); 
+    }
+  };
 
-stickyNav();
-// and run it again every time you scroll
-$(window).scroll(function() {
   stickyNav();
-});
+  // and run it again every time you scroll
+  $(window).scroll(function() {
+    stickyNav();
+  });
+}
 
 // AJOUTER des + aléatoirement
 var plusNumber = Math.floor(Math.random()*100);
