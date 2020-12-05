@@ -52,9 +52,13 @@ header h1{
   padding: 3px 10px;
 }
 
-.menu ul.level-1.part-2 .level-2 li.active, .menu ul.level-1.part-2 .level-2 li a:hover{
+.menu ul.level-1.part-2 .level-2 li.active, 
+.menu ul.level-1.part-2 .level-2 li a:hover,
+.menu ul.level-1.part-3 .level-2 li.active, 
+.menu ul.level-1.part-3 .level-2 li a:hover{
   text-decoration: underline;
 }
+
 
 .menu ul.level-1 > li{
   font-size: 28px;
