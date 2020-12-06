@@ -113,7 +113,9 @@ header h1{
   background: var(--pantone-three);
 }
 
-
+.content-ul{
+  padding-left: 40px;
+}
 
 .content-p, .content-ul, .content-li, ul, li, ul li{
   font-size: 21px;
@@ -359,9 +361,25 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
 
 .fleche{
   margin:20px;
-  font-size: 60px;
-  font-weight:normal;
+  font-size: 50px;
+  font-weight:100;
   color: var(--gris);
+}
+
+.navigation-inner.noir a{
+  color: var(--gris);
+}
+
+.navigation-inner.pantone-one a{
+  color: var(--pantone-one);
+}
+
+.navigation-inner.pantone-two a{
+  color: var(--pantone-two);
+}
+
+.navigation-inner.pantone-three a{
+  color: var(--pantone-three);
 }
 
 /*.article-footer{
