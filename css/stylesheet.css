@@ -500,6 +500,10 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
   text-align: center; 
 }
 
+.content-p a, .footnote-p a{
+  text-decoration: underline;
+}
+
 
 .presentation{
   font-size: 1em;
