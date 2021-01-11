@@ -97,7 +97,7 @@ header h1{
   content:none;
 }
 
-.menu .intro, .menu .credits, .menu .makingoff{
+.menu .intro, .menu .credits, .menu .makingoff, .menu .forccast{
   background: #000;
 }
 
@@ -211,6 +211,16 @@ header h1{
 
 .footnote a{
   color: rgba(0,0,0,0.8);
+}
+
+.footnote .note-pointer{
+  font-size: 13px;
+  /*font-weight: normal;*/
+}
+
+.note-pointer a, .footnote-ref{
+  text-decoration:none !important;
+  font-weight: 500;
 }
 
 .planche .content-figure, .planche .content-p.figure-caption-content{
@@ -502,6 +512,10 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
 
 .content-p a, .footnote-p a{
   text-decoration: underline;
+}
+
+.content-p a:hover, .footnote-p a:hover{
+  opacity: 0.8;
 }
 
 
