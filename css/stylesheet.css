@@ -10,6 +10,7 @@ body{
   font-size: 21px;
   text-align: left;
   text-align-last: left;
+  overflow-x: hidden;
 }
 
 header{
@@ -26,6 +27,10 @@ header h1{
   padding: 20px; 
   color: #000 !important;
 
+}
+
+.row {
+  display: flex;
 }
 
 .menu{
@@ -444,7 +449,7 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
 .citation {
   z-index: 4;
   position: absolute;
-  left: 15px;
+  left: 30px;
   bottom: 50px;
   font-family: 'YoungSerif';
   font-size: 6.5vw;
@@ -457,14 +462,12 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
 }
 
 .arrow-bottom{
-  font-size: 40px;
   background-color: var(--gris);
   display: block;
   position: absolute; 
   bottom: 8%;
   right: 5%;
-  line-height: 1;
-  padding: 0px 10px 5px 10px;
+  padding: 10px 5px 5px;
 }
 
 .arrow-bottom a {
@@ -473,27 +476,59 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
 }
 
 #container-menu-pres {
-  position: relative; 
-  display: flex; 
+  position: relative;
+  margin: 30px; 
+  padding-top: 1em;
+  /*display: flex; */
 }
 
+#container-menu-pres h1{
+  font-size: 3em;
+  font-weight: bold;
+}
 
-.menu-home {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 21%;
-  height: auto;
+#container-menu-pres article{
+  max-width: 32em;
+  margin: auto;
+  background: #FFF;
+}
+
+#container-menu-pres .image-grid{
+  display: flex;
+  flex-wrap: wrap; 
+}
+
+#container-menu-pres .image-grid figure{
+  width: 50%;
+  padding: 20px;
   margin: 0;
-  padding: 0;
-  padding-top: 60px;
 }
 
-.sticky {
-  position: fixed;
-  top: 0;
-  left: 0;
+#container-menu-pres .image-grid figure:nth-child(odd){
+  padding-left: 0;
 }
+
+#container-menu-pres .image-grid figure:nth-child(even){
+  padding-right: 0;
+}
+
+.btn{
+  margin: 20px 20px 20px 0;
+}
+
+
+.btn a{
+  background: #000;
+  color: #fff;
+  border-radius: 3px;
+  padding: .5em .75em;
+  border: none;
+}
+
+figure{
+  margin: 40px 0;
+}
+
 
 .content{
   padding-top: 60px;

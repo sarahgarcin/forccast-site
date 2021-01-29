@@ -13,39 +13,15 @@ $('.menu-home li > span').on('click', function(){
   }
 });
 
-// sticky menu
-
-if($('body').hasClass('home')){
-  var stickyNavTop = $('.menu-home').offset().top;
-
-  // our function that decides weather the navigation bar should have "fixed" css position or not.
-  var stickyNav = function(){
-    var scrollTop = $(window).scrollTop(); // our current vertical position from the top
-         
-    // if we've scrolled more than the navigation, change its position to fixed to stick to top,
-    // otherwise change it back to relative
-    if (scrollTop > stickyNavTop) { 
-        $('.menu-home').addClass('sticky');
-    } else {
-        $('.menu-home').removeClass('sticky'); 
-    }
-  };
-
-  stickyNav();
-  // and run it again every time you scroll
-  $(window).scroll(function() {
-    stickyNav();
-  });
-}
 
 // AJOUTER des + aléatoirement sur la home
-addPlus($('#container-menu-pres '), 100, 300);
+//addPlus($('#container-menu-pres '), 100, 300);
 
 // ------------------ FIN HOME --------------------- 
 // -------------------------------------------------
 
 // AJOUTER des + aléatoirement sur les articles
-addPlus($('section'), 100, 400);
+addPlus($('section'), 100, 150);
 
 
 function addPlus(element, min, max){

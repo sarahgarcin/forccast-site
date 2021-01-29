@@ -4,15 +4,15 @@ var minRadius =45;
 var maxRadius = 60;
 
 function setup() {
-	var canvas = createCanvas(windowWidth, windowHeight);
+	var canvas = createCanvas(windowWidth, windowHeight+12);
 	canvas.parent('container-homescreen');
   noStroke()
   fill(22, 22, 22);
-  background (250,250,250);
+  background (255,255,255);
 }
 
 function draw() {
-  background (250,250,250);
+  background (255,255,255);
 	xoff = sin(random(-1000,1000));
   for (var x = 20; x < width; x += space) {
     for (var y = 15; y < height; y += space) {
