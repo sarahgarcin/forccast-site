@@ -314,6 +314,8 @@ figcaption, .contents-container figcaption, .contents-container figcaption p{
 blockquote{
   font-size: 0.8em;
   line-height: 1.4;
+  text-align: left;
+  width: calc(100% - 60px);
 }
 
 
@@ -403,6 +405,7 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
 .planche{
   width: 100%;
   margin: 0;
+  margin-top: 50px;
 }
 
 .author{
@@ -421,7 +424,7 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
   margin-top: 0;
 }
 
-.content-p + .ressources-wrapper{
+.ressources-wrapper{
   margin-top: 50px;
   margin-bottom: 50px;
   border-top: 1px solid #000;
@@ -710,7 +713,7 @@ figure{
 
 
 .presentation{
-  font-size: 1em;
-  width: 100%;
+  font-size: 1.5em;
+  width: 120%;
 }
 
