@@ -1,15 +1,7 @@
 /* ------------------------- I M P O R T ---------------------------- */
 
 @import 'variables.css';
-/* Importer tous les styles des gabarits ici */
-@import 'citation.css';
-@import 'ouverture.css';
-@import 'part-one.css';
-@import 'part-two.css';
-@import 'part-three.css';
-@import 'table-of-content.css';
-@import 'blank_page.css';
-@import 'ours.css';
+
 
 /* ------------------------- MAIN STYLE ---------------------------- */
 * {

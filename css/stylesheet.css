@@ -1,13 +1,15 @@
 @import "fonts.css"; 
 
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+ 
 
 body{
-  font-size: 21px;
+  font-size: 15px;
   text-align: left;
   text-align-last: left;
   overflow-x: hidden;
@@ -17,24 +19,53 @@ header{
   position: fixed;
   top:0;
   left:0;
-  width: 20%;
+  /*width: 20%;*/
+  width: 100%;
+  z-index: 100;
+  /*background: #FFF;*/
 }
 
 header h1{
   margin: 0; 
-  font-size:20px;
   text-transform: uppercase;
-  padding: 20px; 
+  padding: 10px;
+  font-size: 15px;
+  text-align: center;
+  text-align-last: center;
+  background: #FFF;
+  /*padding: 20px; */
+  /*font-size:20px;*/
   color: #000 !important;
 }
 
+
+
 .row {
   display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.show-for-large-only{
+  display: none;
+}
+
+.show-for-small-only{
+  display: block;
 }
 
 .menu{
   color: #FFF;
   font-family: var(--font-title);
+  position: relative;
+  left: -100%;
+  max-width: 100%;
+  transition: left 1s ease;
+}
+
+.menu.active{
+  left: 0;
 }
 
 .menu ul {
@@ -48,6 +79,17 @@ header h1{
 
 .menu ul li a{
   color:#FFF;
+}
+
+.sommaire-btn{
+  padding: 3px 20px 10px;
+  background: #000;
+  transform: rotate(90deg);
+  transform-origin: 100% 100% ;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  cursor: pointer;
 }
 
 
@@ -122,7 +164,7 @@ header h1{
 }
 
 .content-p, .content-ul, .content-li, ul, li, ul li{
-  font-size: 21px;
+  font-size: 15px;
   line-height: 1.4;
   hyphens: none;
   word-spacing: 0;
@@ -234,6 +276,7 @@ header h1{
   min-width: 120px;
   background: #FFF;
   color: rgba(0,0,0,0.8);
+  display: none !important;
 }
 
 .footnote a{
@@ -319,6 +362,7 @@ blockquote{
 }
 
 
+
 .contents-container h1 {
   /*text-align: center;*/
   font-size: 1.7em;
@@ -358,9 +402,12 @@ h2.edition-block-title, h3.edition-block-subtitle{
 }
 
 h2.edition-block-title{
-  font-size: 4.3em;
+  /*font-size: 4.3em;*/
+  font-size: 13vw;
   line-height: 1.2;
-  width: 120%;
+  /*width: 120%;*/
+  width: 100%;
+  word-break: break-word;
 }
 
 h3.edition-block-subtitle{
@@ -376,8 +423,10 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
 
 .edition-block {
   margin:auto;
-  width: 52%;
-  min-width: 380px;
+  margin-left: 40px;
+  /*width: 52%;*/
+  width: calc(100% - 40px);
+  /*min-width: 380px;*/
   margin-top: 50px;
   margin-bottom: 80px;
   background: #FFF;
@@ -400,6 +449,7 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
   width: 100%;
   height: 100%;
 }
+
 
 /* planche d'images */
 .planche{
@@ -444,8 +494,10 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
   margin: auto;
   margin-top: auto;
   margin-bottom: auto;
-  width: 52%;
-  min-width: 380px;
+  /*width: 52%;
+  min-width: 380px;*/
+  margin-left: 40px;
+  width: calc(100% - 40px);
   margin-bottom: 100px;
   background: #FFF;
 }
@@ -512,6 +564,8 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
   color: var(--gris);
 }
 
+
+
 .fleche:last-child{
   margin-left: 20px;
   margin-right: 0px;
@@ -547,6 +601,8 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
   color:  var(--gris);
 }
 */
+
+
 
 .plus{
   position: absolute;
@@ -589,6 +645,8 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
   margin-bottom: 0;
 }
 
+
+
 /* ----------------- HOME ------------------------------*/
 
 #container-homescreen{
@@ -610,14 +668,17 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
   left: 30px;
   bottom: 50px;
   font-family: 'YoungSerif';
-  font-size: 6.5vw;
+  /*font-size: 6.5vw;*/
+  font-size: 10vw;
   line-height: 1.2;
   color: var(--gris);
+  width: calc(100% - 200px);
 }
 
 .citation span{
   background-color: var(--fond);
 }
+
 
 .arrow-bottom{
   background-color: var(--gris);
@@ -626,6 +687,7 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
   bottom: 8%;
   right: 5%;
   padding: 10px 5px 5px;
+  transform: scale(0.8);
 }
 
 .arrow-bottom a {
@@ -635,13 +697,13 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
 
 #container-menu-pres {
   position: relative;
-  margin: 30px; 
+  margin: 10px; 
   padding-top: 1em;
   /*display: flex; */
 }
 
 #container-menu-pres h1{
-  font-size: 3em;
+  font-size: 9vw;
   font-weight: bold;
 }
 
@@ -673,7 +735,6 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
 .btn{
   margin: 20px 20px 20px 0;
 }
-
 
 .btn a, .download-article a, .download-ressources a{
   background: #000;
@@ -713,7 +774,79 @@ figure{
 
 
 .presentation{
-  font-size: 1.5em;
+  /*font-size: 21px;*/
   width: 120%;
+  max-width: 100%;
 }
+
+
+/* Smartphones */
+@media only screen and (max-width: 48em){
+  body{
+    background: yellow;
+  }
+}
+
+@media only screen and (min-width: 48em){
+  body{
+    background: pink;
+    font-size: 21px;
+  }
+  header h1{
+    padding: 20px; 
+    font-size:21px;
+  }
+  h2.edition-block-title{
+    font-size: 4.3em;
+    width: 120%;
+  }
+  .edition-block {
+    width: 52%;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .show-for-large-only{
+    display: block;
+  }
+
+  .show-for-small-only{
+    display: none;
+  }
+  .citation{
+    font-size: 6.5vw;
+  }
+  #container-menu-pres {
+    margin: 30px;
+  }
+  #container-menu-pres h1{
+    font-size: 3em;
+  }
+  .presentation{
+    font-size: 1.5em;
+  }
+  .content-p, .content-ul, .content-li, ul, li, ul li{
+    font-size: 21px;
+  }
+}
+
+
+@media only screen and (min-width: 64em){
+  body{
+    background: lightgreen;
+  }
+  .presentation{
+    max-width: 120%;
+    font-size: 1.5em;
+  }
+}
+
+
+@media only screen and (min-width: 75em){
+  body{
+    background: lightblue;
+    /*background: #FFF;*/
+  }
+}
+
+
 

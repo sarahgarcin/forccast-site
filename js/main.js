@@ -1,7 +1,20 @@
-// ------------------ HOME --------------------- 
-// --------------------------------------------- 
 
 //             MENU              //
+$('.sommaire-btn').on('click', function(){
+  if($(this).parents('.menu').hasClass('active')){
+    $(this).parents('.menu').removeClass('active');
+    $(this).find('.sommaire-arrow').html('↑');
+  }
+  else{
+    $(this).parents('.menu').addClass('active');
+    $(this).find('.sommaire-arrow').html('↓');
+  }
+});
+
+
+
+
+
 $('.menu-home li > span').on('click', function(){
   if($(this).parent('li').hasClass('active')){
     $(this).parent('li').removeClass('active');
@@ -17,8 +30,6 @@ $('.menu-home li > span').on('click', function(){
 // AJOUTER des + aléatoirement sur la home
 //addPlus($('#container-menu-pres '), 100, 300);
 
-// ------------------ FIN HOME --------------------- 
-// -------------------------------------------------
 
 // AJOUTER des + aléatoirement sur les articles
 addPlus($('section'), 100, 150);
