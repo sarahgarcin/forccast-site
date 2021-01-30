@@ -59,9 +59,12 @@ header h1{
   color: #FFF;
   font-family: var(--font-title);
   position: relative;
-  left: -100%;
+  left: calc(-100% + 50px);
   max-width: 100%;
   transition: left 1s ease;
+  width: calc(100% - 50px);
+  position: fixed;
+  z-index: 100;
 }
 
 .menu.active{
@@ -274,6 +277,7 @@ header h1{
   right: 50px;
   width: 15%;
   min-width: 120px;
+  max-width: 280px;
   background: #FFF;
   color: rgba(0,0,0,0.8);
   display: none !important;
@@ -297,15 +301,18 @@ header h1{
 
 .planche .content-figure{
   margin: 0;
-  padding : 10px 20px;
+  /*padding : 10px 20px;*/
+  padding: 10px 10px 10px 0px;
 }
 
 .planche .content-figure{
-  width: 50%;
+  /*width: 50%;*/
+  width: 100%;
 }
 
 .planche .content-figure.portrait{
-  width: 35%;
+  /*width: 35%;*/
+  width: 70%;
 }
 
 .figure-caption-content.alone-caption{
@@ -413,7 +420,7 @@ h2.edition-block-title{
 h3.edition-block-subtitle{
   font-size: 1.5em;
   line-height: 1.2;
-  margin-top: 30px;
+  /*margin-top: 30px;*/
 }
 
 h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
@@ -558,8 +565,10 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
 
 .fleche{
   margin:20px 0px;
-  margin-right: 20px;
-  font-size: 50px;
+  /*margin-right: 20px;*/
+  /*font-size: 50px;*/
+  margin-right: 10px;
+  font-size: 2em;
   font-weight:100;
   color: var(--gris);
 }
@@ -567,7 +576,8 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
 
 
 .fleche:last-child{
-  margin-left: 20px;
+  margin-left: 10px;
+  /*margin-left: 20px;*/
   margin-right: 0px;
 }
 
@@ -783,28 +793,35 @@ figure{
 /* Smartphones */
 @media only screen and (max-width: 48em){
   body{
-    background: yellow;
+    /*background: yellow;*/
   }
 }
 
 @media only screen and (min-width: 48em){
   body{
-    background: pink;
+    /*background: pink;*/
     font-size: 21px;
   }
   header h1{
     padding: 20px; 
     font-size:21px;
   }
+  .menu{
+    width: 30%;
+    left: -30%;
+  }
   h2.edition-block-title{
     font-size: 4.3em;
     width: 120%;
+    max-width: 820px;
   }
   .edition-block {
-    width: 52%;
-    margin-left:auto;
-    margin-right:auto;
+    width:70%;
+    margin-left: 50px;
+    margin-top: 80px;
+    max-width: 820px;
   }
+
   .show-for-large-only{
     display: block;
   }
@@ -827,13 +844,52 @@ figure{
   .content-p, .content-ul, .content-li, ul, li, ul li{
     font-size: 21px;
   }
+  .article-footer{
+    margin-right: 50px;
+    margin-left: 50px;
+    width: calc(100% - 100px);
+    max-width: 1220px;
+  }
+  .footnote{
+    display: inline-block !important;
+  }
+  .planche .content-figure{
+    padding : 10px 20px;
+  }
+
+  .planche .content-figure{
+    width: 50%;
+  }
+
+  .planche .content-figure.portrait{
+    width: 35%;
+  }
+/*  .download-article, .download-ressources{
+    width: 52%;
+    margin: auto;
+  }*/
 }
 
 
 @media only screen and (min-width: 64em){
   body{
-    background: lightgreen;
+    /*background: lightgreen;*/
   }
+  .menu{
+    width: 20%;
+    left: -20%;
+  }
+  .edition-block {
+    width: 52%;
+    margin-left:auto;
+    margin-right:auto;
+    /*margin-top: 80px;*/
+  }
+  .download-article-wrapper{
+    width: 57%;
+    margin: auto;
+  }
+
   .presentation{
     max-width: 120%;
     font-size: 1.5em;
@@ -843,8 +899,14 @@ figure{
 
 @media only screen and (min-width: 75em){
   body{
-    background: lightblue;
-    /*background: #FFF;*/
+    /*background: lightblue;*/
+    background: #FFF;
+  }
+/*  .edition-block{
+    margin-top: 150px;
+  }*/
+  .article-footer{
+    margin: auto;
   }
 }
 

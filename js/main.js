@@ -1,3 +1,6 @@
+$(document).ready(function(){
+
+
 
 //             MENU              //
 $('.sommaire-btn').on('click', function(){
@@ -201,6 +204,8 @@ function marginNoteBottom(elem) {
   let marginBottom = parseInt(window.getComputedStyle(elem).marginBottom, 10)
   return marginBottom;
 }
+
+});
 
 
 
