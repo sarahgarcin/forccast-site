@@ -38,6 +38,17 @@ header h1{
   color: #000 !important;
 }
 
+sup{
+  top: 0;
+}
+
+.small-caps + sup{
+  top: 3px;
+}
+
+.footnote-ref sup{
+  top: 1px;
+}
 
 
 .row {
@@ -210,7 +221,9 @@ header h1{
 .part-1 figcaption, 
 .part-1 .plus, 
 .part-1 .contents-container h1, 
-.part-1 .contents-container h2{
+.part-1 .contents-container h2, 
+.part-1 .author-bio,
+.part-1 .ressources-wrapper{
   color: var(--pantone-one);
 }
 
@@ -231,7 +244,9 @@ header h1{
 .part-2 figcaption,
 .part-2 .plus, 
 .part-2 .contents-container h1, 
-.part-2  .contents-container h2{
+.part-2  .contents-container h2,
+.part-2 .author-bio, 
+.part-2 .ressources-wrapper{
   color: var(--pantone-two);
 }
 
@@ -252,7 +267,9 @@ header h1{
 .part-3 figcaption,
 .part-3 .plus, 
 .part-3 .contents-container h1, 
-.part-3  .contents-container h2{
+.part-3  .contents-container h2,
+.part-3 .author-bio, 
+.part-3 .ressources-wrapper{
   color: var(--pantone-three);
 }
 
@@ -303,11 +320,19 @@ header h1{
   margin: 0;
   /*padding : 10px 20px;*/
   padding: 10px 10px 10px 0px;
+  width: 100%;
 }
 
-.planche .content-figure{
-  /*width: 50%;*/
-  width: 100%;
+.planche .content-figure:nth-child(odd){
+  padding-left: 0;
+}
+
+.planche .content-figure:nth-child(even){
+  padding-right: 0;
+}
+
+.planche .content-figure + .content-figure{
+  margin-top: 0;
 }
 
 .planche .content-figure.portrait{
@@ -333,6 +358,10 @@ header h1{
 .content-figure{
   width: 100%;
   margin: 0;
+}
+
+.content-figure + .content-figure{
+  margin-top: 40px;
 }
 
 .content-figure.portrait{
@@ -410,7 +439,7 @@ h2.edition-block-title, h3.edition-block-subtitle{
 
 h2.edition-block-title{
   /*font-size: 4.3em;*/
-  font-size: 13vw;
+  font-size: 11vw;
   line-height: 1.2;
   /*width: 120%;*/
   width: 100%;
@@ -484,7 +513,7 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
 .ressources-wrapper{
   margin-top: 50px;
   margin-bottom: 50px;
-  border-top: 1px solid #000;
+  /*border-top: 1px solid #000;*/
   padding-top: 50px;
 }
 
@@ -714,13 +743,85 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
 
 #container-menu-pres h1{
   font-size: 9vw;
+  text-align: center;
+  text-align-last: center;
+  margin-top:0;
+  margin-bottom: 0;
+}
+
+#container-menu-pres .gif{
+/*  width: 120%;
+  margin-left: -10%;*/
+  width: 150%;
+  margin-left: -25%;
+  height: 574px;
+  overflow: hidden;
+  position: relative;
+}
+
+#container-menu-pres .gif img{
+  position: absolute;
+  top: -10%;
+}
+
+.presentation {
+  /*margin-left: -10%;*/
+  /*width: 90%;*/
+  position: relative;
+  margin-bottom: 120px;
+}
+
+.presentation p{
   font-weight: bold;
+}
+
+#container-menu-pres .col-right{
+  position: absolute;
+  left: 105%;
+  font-size: 0.8em;
+  width: 18vw;
+}
+
+#container-menu-pres .col-right h4{
+  font-family: var(--font-text);
+  text-decoration: underline;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+#container-menu-pres .col-right p{
+  font-weight: normal;
+  margin-top: 5px;
+}
+#container-menu-pres .col-right > div{
+  margin-bottom: 50px;
+}
+
+#container-menu-pres .col-right .btn a{
+  background: #FFF;
+  border: 1px solid #000;
+  color: #000;
 }
 
 #container-menu-pres article{
   max-width: 32em;
   margin: auto;
   background: #FFF;
+}
+
+#container-menu-pres .image-bandeau{
+  width: 200%;
+  margin-left: -50%;
+  height: 574px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+
+#container-menu-pres .image-bandeau img{
+  position: absolute;
+  top: -30%;
 }
 
 #container-menu-pres .image-grid{
@@ -783,11 +884,11 @@ figure{
 }
 
 
-.presentation{
-  /*font-size: 21px;*/
+/*.presentation{
+  font-size: 21px;
   width: 120%;
   max-width: 100%;
-}
+}*/
 
 
 /* Smartphones */
@@ -811,8 +912,8 @@ figure{
     left: -30%;
   }
   h2.edition-block-title{
-    font-size: 4.3em;
-    width: 120%;
+    font-size: 3.8em;
+    /*width: 120%;*/
     max-width: 820px;
   }
   .edition-block {
@@ -838,8 +939,8 @@ figure{
   #container-menu-pres h1{
     font-size: 3em;
   }
-  .presentation{
-    font-size: 1.5em;
+  .presentation-text{
+    font-size: 1.2em;
   }
   .content-p, .content-ul, .content-li, ul, li, ul li{
     font-size: 21px;
@@ -890,10 +991,10 @@ figure{
     margin: auto;
   }
 
-  .presentation{
+/*  .presentation{
     max-width: 120%;
     font-size: 1.5em;
-  }
+  }*/
 }
 
 

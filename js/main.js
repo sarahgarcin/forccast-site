@@ -40,7 +40,7 @@ addPlus($('section'), 100, 150);
 
 function addPlus(element, min, max){
   var plusNumber = Math.floor(Math.random()*max + min);
-  var articleHeight = $('body').height();
+  var articleHeight = $('body').innerHeight();
   var articleWidth = $('body').width();
   console.log(articleHeight);
   for(var i=0; i<=plusNumber; i++){
