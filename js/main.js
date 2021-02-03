@@ -14,7 +14,8 @@ $('.sommaire-btn').on('click', function(){
   }
 });
 
-
+// $('.menu').addClass('active');
+// $('.sommaire-arrow').html('↓');
 
 
 
@@ -28,6 +29,8 @@ $('.menu-home li > span').on('click', function(){
     $(this).find('.menu-plus').html('-');
   }
 });
+
+
 
 
 // AJOUTER des + aléatoirement sur la home
