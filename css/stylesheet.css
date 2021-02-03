@@ -23,6 +23,7 @@ header{
   width: 100%;
   z-index: 100;
   /*background: #FFF;*/
+/*  background: #7A7A7A;*/
 }
 
 header h1{
@@ -731,6 +732,22 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
   background-color: var(--fond);
 }
 
+.forccast.btn a{
+  background: #FFF;
+  color: #000;
+  border: 1px solid;
+  padding: 5px 10px;
+  font-size: 15px;
+}
+
+header .forccast, #container-menu-pres .forccast{
+  position: fixed;
+  left: 10px;
+  top: 18px;
+  margin:0;
+  z-index: 100;
+}
+
 
 .arrow-bottom{
   background-color: var(--gris);
@@ -753,6 +770,14 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
   padding-top: 1em;
   /*display: flex; */
 }
+
+/*#container-menu-pres .forccast a{
+  display: block;
+  margin: auto;
+  text-align: center; 
+  text-align-last: center; 
+  width: 80px;
+}*/
 
 #container-menu-pres h1{
   font-size: 9vw;
