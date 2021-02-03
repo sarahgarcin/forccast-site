@@ -770,6 +770,7 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
   height: 574px;
   overflow: hidden;
   position: relative;
+  margin-bottom: 0;
 }
 
 #container-menu-pres .gif img{
@@ -782,6 +783,7 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
   /*width: 90%;*/
   position: relative;
   margin-bottom: 120px;
+  margin-top: 0;
 }
 
 .presentation p{
@@ -823,18 +825,18 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
 }
 
 #container-menu-pres .image-bandeau{
-  width: 200%;
-  margin-left: -50%;
-  height: 574px;
+  width: 150%;
+  margin-left: -25%;
+  height: 600px;
   overflow: hidden;
   position: relative;
-  margin-bottom: 100px;
-  margin-top: 100px;
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 #container-menu-pres .image-bandeau img{
   position: absolute;
-  top: -30%;
+  top: -20%;
 }
 
 #container-menu-pres .image-grid{
