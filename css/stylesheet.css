@@ -336,7 +336,6 @@ sup{
 }
 
 .planche .content-figure.portrait{
-  /*width: 35%;*/
   width: 70%;
 }
 
@@ -366,6 +365,11 @@ sup{
 
 .content-figure.portrait{
   width: 50%;
+  margin: 0 auto;
+}
+
+.content-figure.square{
+  width: 70%;
   margin: 0 auto;
 }
 
