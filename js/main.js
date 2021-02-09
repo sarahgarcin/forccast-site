@@ -1,7 +1,18 @@
 $(document).ready(function(){
 
+  $('.menu').addClass('loaded');
 
+  setTimeout(function(){
+    $('body').removeClass('preload');
+  }, 300);
+  
 
+  // $(window).on('load', function(){
+  //   $('body').removeClass('preload');
+  //   // $('.menu').addClass('loaded');
+  // });
+  
+  
 
   // RESPONSIVE
   if($(window).innerWidth() < 1050){
