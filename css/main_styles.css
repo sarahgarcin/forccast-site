@@ -566,7 +566,7 @@ figcaption sup,
 	font-size: 7pt;
 	pointer-events: none;
 	font-weight: bold;
-	vertical-align: bottom;
+	/*vertical-align: bottom;*/
 	margin-right: 4px;
 }
 
