@@ -1,11 +1,44 @@
 $(document).ready(function(){
 
+  // Chargement plus fluide
   $('.menu').addClass('loaded');
 
-  setTimeout(function(){
+  // setTimeout(function(){
     $('body').removeClass('preload');
-  }, 300);
+  // }, 300);
+
+  // bouton pour version dev - passer du mode non flouté au mode flouté
+  $('body').append('<div class="flou-btn">2021</div>') 
+  $('body').on('click', '.flou-btn', function(){
+    if($(this).hasClass('active')){
+      $(this).removeClass('active');
+      window.location.reload();
+    }else{
+      $(this).addClass('active');
+      disableContent(); 
+    }
+  });
+
+  // Version floutée — pour ne pas avoir accès à tous les contenus
+  // disableContent(); 
   
+  function disableContent(){
+    $(".disable").css('overflow', 'hidden');
+    $(".disable .contents-container > *").not(".disable  .contents-container > .content-p:first-child").not(".disable  .contents-container > .content-p:nth(2)").remove();
+    $('.disable .download-article-wrapper').remove();
+    var flou = '<div class="flou"></div>';
+    $(".disable").append(flou); 
+    var disableInfos = '<div class="disable-infos"><p>Les contenus seront mis en ligne courant 2022. <br>En attendant…</p><div class="version-collector"><div class="acheter btn"><a href="http://www.pressesdesciencespo.fr/fr/book/?gcoi=27246100533290" title="Acheter le livre" target="_blank">Acheter la version collector</a></div></div><div class="version-semipoche"><div class="acheter btn"><a href="http://www.pressesdesciencespo.fr/fr/book/?gcoi=27246100412870" title="Acheter le livre" target="_blank">Acheter la version semi-poche</a></div></div>';
+    $('.disable').append(disableInfos);
+  }
+  
+
+  // const IS_IOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+  // if (IS_IOS) {
+  //   console.log('ios');
+  //     document.documentElement.classList.add('ios');
+  // }
 
   // $(window).on('load', function(){
   //   $('body').removeClass('preload');
@@ -18,8 +51,8 @@ $(document).ready(function(){
   if($(window).innerWidth() < 1050){
     console.log("small");
     // menu 
-    $('.menu').removeClass('active');
-    $('.sommaire-arrow').html('↑');
+    // $('.menu').removeClass('active');
+    // $('.sommaire-arrow').html('↑');
 
     // notes
     responsiveFootnote();
@@ -28,8 +61,8 @@ $(document).ready(function(){
 
   $(window).resize(function(){
     if($(window).innerWidth() < 1050){
-      $('.menu').removeClass('active');
-      $('.sommaire-arrow').html('↑');
+      // $('.menu').removeClass('active');
+      // $('.sommaire-arrow').html('↑');
 
       // notes
       responsiveFootnote();
@@ -37,14 +70,14 @@ $(document).ready(function(){
   });
 
 function responsiveFootnote(){
-  $('body').on('click', '.footnote-ref', function(){
+  $('body').on('click tap touchstart', '.footnote-ref', function(){
     var $footnote = $(this).next('.footnoteHandler').find('.footnote');
     $footnote.addClass('active');
   });
   $('.footnote').each(function(){
     $(this).append('<div class="close-footnote">╳</div>')
   });
-  $('body').on('click', '.close-footnote', function(){
+  $('body').on('click tap touchstart', '.close-footnote', function(){
     var $footnote = $(this).parents('.footnote');
     $footnote.removeClass('active');
   });
@@ -141,10 +174,10 @@ function marginNotes(){
     footnoteIndex = footnote.getAttribute('data-notenumber');
     const handler = footnote.parentElement;
 
-    const footnoteCall = document.getElementById( `note-content-pointer-${ footnote.id}` );
-    if ( footnoteCall ) {
-      footnoteCall.innerHTML = `<sup id="note-content-pointer-${ footnote.id }">${ footnoteIndex }</sup>`;
-    }
+    // const footnoteCall = document.getElementById( `note-content-pointer-${ footnote.id}` );
+    // if ( footnoteCall ) {
+    //   footnoteCall.innerHTML = `<sup id="note-content-pointer-${ footnote.id }">${ footnoteIndex }</sup>`;
+    // }
 
     footnote.innerHTML = `${footnote.id ? `<span class="note-pointer"><a href="#note-content-pointer-${ footnote.id }">${ footnoteIndex }.</a></span>` : ''}${ footnote.innerHTML}`;
     footnote.style.display = 'block';
