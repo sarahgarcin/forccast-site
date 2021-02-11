@@ -8,19 +8,19 @@ $(document).ready(function(){
   // }, 300);
 
   // bouton pour version dev - passer du mode non flouté au mode flouté
-  $('body').append('<div class="flou-btn">2021</div>') 
-  $('body').on('click', '.flou-btn', function(){
-    if($(this).hasClass('active')){
-      $(this).removeClass('active');
-      window.location.reload();
-    }else{
-      $(this).addClass('active');
-      disableContent(); 
-    }
-  });
+  // $('.disable').append('<div class="flou-btn">2021</div>') 
+  // $('body').on('click', '.flou-btn', function(){
+  //   if($(this).hasClass('active')){
+  //     $(this).removeClass('active');
+  //     window.location.reload();
+  //   }else{
+  //     $(this).addClass('active');
+  //     disableContent(); 
+  //   }
+  // });
 
   // Version floutée — pour ne pas avoir accès à tous les contenus
-  // disableContent(); 
+  disableContent(); 
   
   function disableContent(){
     $(".disable").css('overflow', 'hidden');
@@ -28,47 +28,75 @@ $(document).ready(function(){
     $('.disable .download-article-wrapper').remove();
     var flou = '<div class="flou"></div>';
     $(".disable").append(flou); 
-    var disableInfos = '<div class="disable-infos"><p>Les contenus seront mis en ligne courant 2022. <br>En attendant…</p><div class="version-collector"><div class="acheter btn"><a href="http://www.pressesdesciencespo.fr/fr/book/?gcoi=27246100533290" title="Acheter le livre" target="_blank">Acheter la version collector</a></div></div><div class="version-semipoche"><div class="acheter btn"><a href="http://www.pressesdesciencespo.fr/fr/book/?gcoi=27246100412870" title="Acheter le livre" target="_blank">Acheter la version semi-poche</a></div></div>';
+    var disableInfos = '<div class="disable-infos"><p>L’intégralité des contenus sera mise en ligne en 2022. <br>En attendant&#8239;:</p><div class="version-collector"><div class="acheter btn"><a href="http://www.pressesdesciencespo.fr/fr/book/?gcoi=27246100533290" title="Acheter le livre" target="_blank">Acheter le livre (collector)</a></div></div><div class="version-semipoche"><div class="acheter btn"><a href="http://www.pressesdesciencespo.fr/fr/book/?gcoi=27246100412870" title="Acheter le livre" target="_blank">Acheter le livre (semi-poche)</a></div></div>';
     $('.disable').append(disableInfos);
   }
-  
-
-  // const IS_IOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-
-  // if (IS_IOS) {
-  //   console.log('ios');
-  //     document.documentElement.classList.add('ios');
-  // }
-
-  // $(window).on('load', function(){
-  //   $('body').removeClass('preload');
-  //   // $('.menu').addClass('loaded');
-  // });
   
   
 
   // RESPONSIVE
-  if($(window).innerWidth() < 1050){
+  if($(window).innerWidth() < 770){
     console.log("small");
-    // menu 
-    // $('.menu').removeClass('active');
-    // $('.sommaire-arrow').html('↑');
+    // attributs des numéros aux notes de bas de page
+    countFootnotes();
+    
+    // mets les notes en bas de la page 
+    var elements = document.querySelectorAll(".footnote");
+    var wrapper = document.createElement('div');
+    wrapper.classList.add('footnotes-mobile');
+    var container = document.querySelector('.contents-container');
 
-    // notes
-    responsiveFootnote();
+    for(var i = 0; i < elements.length; i++){
+        wrapper.appendChild(elements[i]);
+    }
+    container.appendChild(wrapper);
 
+  }
+  else{
+    // Notes de côté de page
+    countFootnotes();
+    marginNotes();
   }
 
   $(window).resize(function(){
-    if($(window).innerWidth() < 1050){
-      // $('.menu').removeClass('active');
-      // $('.sommaire-arrow').html('↑');
+    if($(window).innerWidth() < 770){
+      // mets les notes en bas de page
+      if($('.footnotes-mobile').length == 0){
+        var elements = document.querySelectorAll(".footnote");
+        var wrapper = document.createElement('div');
+        wrapper.classList.add('footnotes-mobile');
+        var container = document.querySelector('.contents-container');
 
-      // notes
-      responsiveFootnote();
+        for(var i = 0; i < elements.length; i++){
+            wrapper.appendChild(elements[i]);
+        }
+        container.appendChild(wrapper);
+      }
+      $('.footnote').each(function(){
+        $(this).css({
+          'position' : "inherit",
+          'display':'block'
+        })
+      });
+    }
+    else{
+      // remets les notes sur le côté
+      if($('.footnotes-mobile').length != 0){
+        $('.footnote-ref').each(function(){
+          var id = $(this).attr('href');
+          $(this).next('.footnoteHandler').append($(id));
+          $(id).css({
+            'position':'absolute'
+          });
+        });
+        $('.footnotes-mobile').remove();
+      }
+      // Notes de côté de page
+      marginNotes();
     }
   });
 
+//  non utilisé
 function responsiveFootnote(){
   $('body').on('click tap touchstart', '.footnote-ref', function(){
     var $footnote = $(this).next('.footnoteHandler').find('.footnote');
@@ -122,7 +150,7 @@ $('.menu-home li > span').on('click', function(){
 
 
 // AJOUTER des + aléatoirement sur les articles
-addPlus($('section'), 100, 150);
+addPlus($('section'), 50, 100);
 
 
 function addPlus(element, min, max){
@@ -139,27 +167,21 @@ function addPlus(element, min, max){
 }
 
 
-// Notes de côté de page
-marginNotes();
-
-
-
-
-function marginNotes(){
-  const footnotes = document.querySelectorAll( '.footnote' );
-  for ( const footnote of footnotes ) {
-    const parentElement = footnote.parentElement;
-    const footnoteCall = document.createElement( 'div' );
-    const footnoteNumber = footnote.dataset.notenumber;
+function countFootnotes(){
+    var footnotes = document.querySelectorAll( '.footnote' );
+  for ( var footnote of footnotes ) {
+    var parentElement = footnote.parentElement;
+    var footnoteCall = document.createElement( 'a' );
+    var footnoteNumber = footnote.dataset.notenumber;
 
     footnoteCall.className = 'footnote-ref'; // same class as Pandoc
     footnoteCall.setAttribute( 'id', `fnref${ footnoteNumber}` ); // same notation as Pandoc
-    // footnoteCall.setAttribute( 'href', `#${ footnote.id}` );
+    footnoteCall.setAttribute( 'href', `#${ footnote.id}` );
     footnoteCall.innerHTML = `<sup id="note-content-pointer-${ footnote.id }">${ footnoteNumber }</sup>`;
     parentElement.insertBefore( footnoteCall, footnote );
 
     // Here comes a hack. Fortunately, it works with Chrome and FF.
-    const handler = document.createElement( 'div' );
+    var handler = document.createElement( 'div' );
     handler.className = 'footnoteHandler';
     parentElement.insertBefore( handler, footnote );
     handler.appendChild( footnote );
@@ -170,11 +192,11 @@ function marginNotes(){
   }
 
 
-  for ( const footnote of footnotes ) {
+  for ( var footnote of footnotes ) {
     footnoteIndex = footnote.getAttribute('data-notenumber');
-    const handler = footnote.parentElement;
+    var handler = footnote.parentElement;
 
-    // const footnoteCall = document.getElementById( `note-content-pointer-${ footnote.id}` );
+    // var footnoteCall = document.getElementById( `note-content-pointer-${ footnote.id}` );
     // if ( footnoteCall ) {
     //   footnoteCall.innerHTML = `<sup id="note-content-pointer-${ footnote.id }">${ footnoteIndex }</sup>`;
     // }
@@ -182,7 +204,12 @@ function marginNotes(){
     footnote.innerHTML = `${footnote.id ? `<span class="note-pointer"><a href="#note-content-pointer-${ footnote.id }">${ footnoteIndex }.</a></span>` : ''}${ footnote.innerHTML}`;
     footnote.style.display = 'block';
   }
+}
 
+
+
+
+function marginNotes(){
   let notes = document.querySelectorAll( '.footnote' );
   let noteOverflow = false;
   let notesHeightAll = [];

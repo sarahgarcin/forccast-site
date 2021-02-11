@@ -345,23 +345,30 @@ sup{
   background: var(--pantone-three);
 }
 
+/* notes de bas de page pour mobile */
+.footnotes-mobile{
+  width: 100%;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
+.footnotes-mobile .footnote{
+  margin-top: 0;
+  margin-bottom: 10px;
+  right: 0;
+  position: relative;
+  padding: 0;
+}
 
 .footnote{
-  position: absolute;
   font-size: 14px;
   line-height: 1.4;
   right: 50px;
-  width: 50%;
-  border: 1px solid rgba(0,0,0,0.8);
-  padding: 10px;
-  z-index: 90;
-
-  background: #FFF;
-  color: rgba(0,0,0,0.8);
-  opacity: 0;
-  transition: all 0.5s linear; 
-  pointer-events: none;   
+  width: 100%;
 }
 
 .footnote.active{
@@ -376,10 +383,11 @@ sup{
   cursor: pointer;
 }
 
-.footnote-ref{
+.content-p .footnote-ref{
   pointer-events: auto;
   display: inline;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .footnote-ref sup{
@@ -488,15 +496,11 @@ blockquote{
 
 
 .contents-container h1 {
-  /*text-align: center;*/
   font-size: 1.7em;
-  /*font-family: 'HKGrotesk';*/
-  /*font-weight: 600;*/
   margin-top: 15%;
   margin-bottom: 6%;
   padding-bottom: 0%;
   margin-left: 35px;
-  /*text-align-last: center; */
 }
 
 .contents-container h1:before{
@@ -571,7 +575,7 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
   bottom: 0;
   right: 0;
   width: 100%;
-  height: 100%;
+  height: 90%;
 }
 
 
@@ -583,7 +587,7 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
 }
 
 .author{
-  text-align: right;
+  text-align: left;
   margin-top: 60px;
 }
 
@@ -601,13 +605,7 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
 .ressources-wrapper{
   margin-top: 50px;
   margin-bottom: 50px;
-  /*border-top: 1px solid #000;*/
-  /*padding-top: 50px;*/
 }
-
-/*.ressources-wrapper h1.ressources-title{
-  margin-bottom: 50px;
-}*/
 
 .content-p + .ressources-ref{
   margin-top: 50px;
@@ -618,10 +616,6 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
   margin: auto;
   margin-top: auto;
   margin-bottom: auto;
-  /*width: 52%;
-  min-width: 380px;*/
-  /*margin-left: 40px;*/
-  /*width: calc(100% - 40px);*/
   width: 100%;
   margin-bottom: 100px;
   background: #FFF;
@@ -719,22 +713,6 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
 .navigation-inner.pantone-three a{
   color: var(--pantone-three);
 }
-
-/*.article-footer{
-  padding-bottom: 4%;
-  margin-left: 25%;
-  width: 70%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.article-footer .article-footer-inner{
-  display: flex;
-  align-items: center;
-  color:  var(--gris);
-}
-*/
-
 
 
 .plus{
@@ -835,7 +813,6 @@ h2.edition-block-title + .content-p, h3.edition-block-subtitle + .content-p{
 header .forccast, #container-menu-pres .forccast{
   position: fixed;
   right: 10px;
-  /*top: 18px;*/
   top: 13px;
   margin:0;
   z-index: 100;
@@ -862,16 +839,7 @@ header .forccast, #container-menu-pres .forccast{
   position: relative;
   margin: 10px; 
   padding-top: 1em;
-  /*display: flex; */
 }
-
-/*#container-menu-pres .forccast a{
-  display: block;
-  margin: auto;
-  text-align: center; 
-  text-align-last: center; 
-  width: 80px;
-}*/
 
 #container-menu-pres h1{
   font-size: 2em;
@@ -1076,25 +1044,9 @@ figure{
 
 
 
-
-
-/*.presentation{
-  font-size: 21px;
-  width: 120%;
-  max-width: 100%;
-}*/
-
-
 /* Smartphones */
-@media only screen and (max-width: 48em){
-  body{
-    /*background: yellow;*/
-  }
-}
-
 @media only screen and (min-width: 48em){
   body{
-    /*background: pink;*/
     font-size: 21px;
   }
 
@@ -1108,7 +1060,6 @@ figure{
     font-size:18px;
     width: 22%;
     background: transparent;
-    /*text-indent: -30px;*/
   }
 
 
@@ -1215,6 +1166,7 @@ figure{
   }
 
   .footnote{
+    position: absolute;
     width: 15%;
     min-width: 120px;
     max-width: 280px;
@@ -1222,10 +1174,12 @@ figure{
     opacity: 1;
     pointer-events: auto;
     display: inline-block !important;
+    margin-top: -22px;
   }
 
-  .footnote-ref{
+  .content-p .footnote-ref{
     cursor: auto;
+    pointer-events: none;
   }
 
   .footnote-ref sup{
@@ -1255,18 +1209,11 @@ figure{
   .forccast.btn a{
     font-size: 15px;
   }
-/*  .download-article, .download-ressources{
-    width: 52%;
-    margin: auto;
-  }*/
 }
 
 
 
 @media only screen and (min-width: 64em){
-  body{
-    /*background: lightgreen;*/
-  }
 
   header h1{
     width: 17.5%;
@@ -1279,7 +1226,6 @@ figure{
     width: 52%;
     margin-left:auto;
     margin-right:auto;
-    /*margin-top: 80px;*/
   }
   .download-article-wrapper{
     width: 57%;
@@ -1332,12 +1278,8 @@ figure{
 
 @media only screen and (min-width: 75em){
   body{
-    /*background: lightblue;*/
     background: #FFF;
   }
-/*  .edition-block{
-    margin-top: 150px;
-  }*/
   .article-footer{
     margin: auto;
   }
